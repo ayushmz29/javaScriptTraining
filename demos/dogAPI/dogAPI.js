@@ -2,11 +2,11 @@
 // using 'node fetch' to use 'fetch' with node 
 // import fetch from 'node-fetch'
 
-fetch("https://dog.ceo/api/breeds/list/all").then((response) => {
-  return response.json()
-}).then((data) => {
-  // console.log(data)
-})
+// fetch("https://dog.ceo/api/breeds/list/all").then((response) => {
+//   return response.json()
+// }).then((data) => {
+//   console.log(data)
+// })
 
 // Using Modern Syntax of promises
 const startFetching = async () => {
@@ -21,7 +21,7 @@ startFetching();
 // Building Select Dropdown
 const createBreedList = (breedList) => {
   document.getElementById("breed").innerHTML = `
-  <select>
+  <select id="selectId" onchange="loadByBreed()">
     <option>
       Choose a Dog Breed
     </option>
@@ -35,4 +35,15 @@ const createBreedList = (breedList) => {
     // Join will convert an array into a single string
   </select>
   `
+}
+
+const loadByBreed = async () => {
+  selectedBreed = document.getElementById("selectId").value
+  if (selectedBreed !== "Choose a Dog Breed") {
+    // alert(selectedBreed)
+    const response = await fetch(`https://dog.ceo/api/breed/${selectedBreed}/images`)
+    const data = await response.json()
+    console.log(data)
+  }
+
 }
