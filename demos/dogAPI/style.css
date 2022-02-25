@@ -1,0 +1,50 @@
+html,
+body {
+    margin: 0;
+    font-family: sans-serif;
+    height: 100%;
+}
+
+.app {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header select {
+    font-size: 1.3rem;
+    width: auto;
+}
+
+.slideshow {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(253, 213, 165);
+    position: relative;
+}
+
+#slide {
+    position: absolute;
+    height: 85%;
+    width: 90%;
+    border: 1px black solid;
+}
+
+.slideImage{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
