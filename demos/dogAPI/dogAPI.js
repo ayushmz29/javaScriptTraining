@@ -20,8 +20,9 @@ startFetching();
 
 // Building Select Dropdown
 const createBreedList = (breedList) => {
-    document.getElementById("breed").innerHTML = `
-  <select id="selectId" onchange="loadByBreed()">
+    document.getElementById(
+        "breed"
+    ).innerHTML = `<select id="selectId" onchange="loadByBreed()">
     <option>
       Choose a Dog Breed
     </option>
@@ -47,13 +48,14 @@ const loadByBreed = async () => {
             `https://dog.ceo/api/breed/${selectedBreed}/images`
         );
         const data = await response.json();
-        console.log(data.message)
+        // console.log(data.message);
         createSlideShow(data.message);
     }
 };
 
 const createSlideShow = (imageArray) => {
-    console.log(imageArray[0])
+    let currentIndexValue = 0;
+    // console.log(imageArray[0]);
     document.getElementById("slide").innerHTML = `
     <div
         class="slideImage"
@@ -62,6 +64,37 @@ const createSlideShow = (imageArray) => {
         "
         >
     </div>
-    
-    `
+    <div
+        class="slideImage"
+        style="
+            background-image: url('${imageArray[1]}')
+        "
+        >
+    </div>
+    `;
+    currentIndexValue += 2;
+
+    setInterval(() => {
+        document.getElementById("slideShow").insertAdjacentHTML(
+            "beforeend",
+            `<div
+                class="slideImage"
+                style="
+                    background-image: url('${imageArray[currentIndexValue]}')
+                "
+                >
+        </div>`
+        );
+        const deleteOldestPhoto = () => {
+            // querySelector will select only the first instance
+            document.querySelector(".slideImage").remove();
+        };
+        // after 1 sec because transition animation of oldest photo is .9s
+        setTimeout(deleteOldestPhoto, 1000);
+        if (currentIndexValue + 1 >= imageArray.length) {
+            currentIndexValue = 0;
+        } else {
+            currentIndexValue += 1;
+        }
+    }, 3000);
 };
