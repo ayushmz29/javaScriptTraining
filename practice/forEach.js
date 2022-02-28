@@ -16,7 +16,7 @@ nums.forEach((value, index) => {
 // If your callback function were declared elsewhere:
 
 function forEachCallback(value, index, nums2) {
-    console.log(`value : ${value}, index ${index}`);
+    // console.log(`value : ${value}, index ${index}`);
 }
 // Then it has no idea what array it's being used for:
 
