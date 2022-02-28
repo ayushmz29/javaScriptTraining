@@ -9,11 +9,11 @@ function processData(myArray) {
         // console.log(i)
         
         if(myArray[i] > Max){
-            Result = Max;   //save the prev Max as Result
+            Result = Max;         //save the prev Max as Result
             Max = myArray[i];
         }
         else if (myArray[i] < Max && myArray[i] > Result){
-            Result = myArray[i];
+            Result = myArray[i];  //new second biggest
         }
     }
     console.log(Result)
