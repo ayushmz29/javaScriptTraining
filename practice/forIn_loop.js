@@ -9,7 +9,7 @@ let myObject = {
 
 // to print only keys in 'myObject' object
 for (let key in myObject.laptop) {
-    console.log(key, myObject[key]);
+    console.log(key, myObject.laptop[key]);
 }
 
 // print only the key-values of 'laptop' object
