@@ -15,6 +15,16 @@ set1.add(99);
 set1.add("React");
 set1.add("JavaScript");
 
+// we need to use for-of loop(or forEach loop) to iterate through values in set
 for(let i of set1){
     console.log(i);
-}; 
+};
+
+set1.forEach (value => {
+    console.log(value);
+});
+
+
+// to Search values in set we can use '.has()' method, it will return boolean result
+console.log(set1.has('Ayush'))
+console.log(set1.has(77))
